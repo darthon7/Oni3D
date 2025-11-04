@@ -1,0 +1,252 @@
+/* src/styles/MainLayout.css */
+
+/* Agrega aquí otros estilos personalizados */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+  --primary: #4361ee;
+  --secondary: #3a0ca3;
+  --accent: #4cc9f0;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --success: #4ade80;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-icon {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.company-name {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification-icon {
+  position: relative;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--danger);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.signin-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 70px);
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  padding: 20px 0;
+  transition: all 0.3s;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.sidebar-menu {
+  list-style: none;
+}
+
+.menu-item {
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.menu-item:hover {
+  background: #f0f4ff;
+  border-left: 4px solid var(--primary);
+  color: var(--primary);
+}
+
+.menu-item.active {
+  background: #f0f4ff;
+  border-left: 4px solid var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.menu-item i {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.menu-section {
+  padding: 15px 25px 5px;
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  margin-top: 70px;
+  padding: 30px;
+  transition: all 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 70px;
+    overflow: hidden;
+  }
+
+  .sidebar:hover {
+    width: 250px;
+  }
+
+  .menu-item span {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .sidebar:hover .menu-item span {
+    opacity: 1;
+  }
+
+  .menu-section {
+    opacity: 0;
+  }
+
+  .sidebar:hover .menu-section {
+    opacity: 1;
+  }
+
+  .main-content {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .company-name {
+    display: none;
+  }
+
+  .sidebar {
+    width: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar.open {
+    width: 250px;
+  }
+
+  .main-content.sidebar-open {
+    margin-left: 250px;
+  }
+}
+
+@keyframes gradient-slow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-slow {
+  background-size: 200% 200%;
+  animation: gradient-slow 10s ease infinite;
+}
