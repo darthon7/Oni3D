@@ -242,7 +242,7 @@ const ThreeDPrintingCalculator = () => {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 py-8 px-4">
+      <div className="min-h-screen">
         <div className="max-w-4xl mx-auto">
           {/* Header con efectos mejorados */}
           <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 text-white rounded-2xl shadow-2xl overflow-hidden mb-8 fade-in">

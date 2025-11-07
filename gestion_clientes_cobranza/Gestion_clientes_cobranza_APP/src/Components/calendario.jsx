@@ -282,7 +282,7 @@ export default function CalendarioEntregas() {
                 }
             `}</style>
 
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 p-4 sm:p-6">
+            <div className="min-h-screen ">
                 <div className="max-w-7xl mx-auto">
                     {/* Header (sin cambios) */}
                     <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 text-white rounded-2xl shadow-2xl overflow-hidden mb-8 animate-fade-in">
@@ -400,13 +400,6 @@ export default function CalendarioEntregas() {
                                     <div className="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-white/10 gap-3">
                                         {/* Botones Borrar y Editar (Izquierda) */}
                                         <div className="flex gap-3">
-                                            <button
-                                                onClick={(e) => handleDeleteEvent(e, selectedEvent.id)}
-                                                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-lg hover:bg-red-700 transition-all duration-200 transform hover:scale-105 cursor-pointer"
-                                            >
-                                                <IconTrash />
-                                                Borrar
-                                            </button>
                                             <Link
                                                 to={`/Editar_Alerta/${selectedEvent.id}`} // <-- Debes crear esta ruta en App.jsx
                                                 onClick={(e) => e.stopPropagation()} // Evita que el Link cierre el modal
@@ -415,6 +408,14 @@ export default function CalendarioEntregas() {
                                                 <IconPencil />
                                                 Editar
                                             </Link>
+                                            <button
+                                                onClick={(e) => handleDeleteEvent(e, selectedEvent.id)}
+                                                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-lg hover:bg-red-700 transition-all duration-200 transform hover:scale-105 cursor-pointer"
+                                            >
+                                                <IconTrash />
+                                                Borrar
+                                            </button>
+                                            
                                         </div>
                                         {/* Botón Cerrar (Derecha) - Se usa el botón 'X' del header, pero mantenemos este por si acaso */}
                                         <button

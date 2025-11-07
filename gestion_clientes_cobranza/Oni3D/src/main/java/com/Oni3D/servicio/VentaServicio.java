@@ -39,6 +39,9 @@ public interface VentaServicio {
     // Eliminar venta
     void eliminarVenta(Long ventaId);
 
+    // ⭐ AGREGAR ESTE MÉTODO ⭐
+    void eliminarVentaPorEventoId(Long eventoId);
+
     // Estadísticas
     Double calcularTotalVendidoPorProducto(Long productoId);
     Double calcularTotalVendidoEnPeriodo(LocalDateTime inicio, LocalDateTime fin);

@@ -171,8 +171,8 @@ export default function Navbar({ toggleSidebar }) {
                 }
                 
                 @keyframes glow {
-                    0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3); }
-                    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.5); }
+                    0%, 100% { box-shadow: 0 0 5px rgba(34, 211, 238, 0.5), 0 0 10px rgba(34, 211, 238, 0.3); }
+                    50% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.8), 0 0 30px rgba(34, 211, 238, 0.5); }
                 }
                 
                 @keyframes slideDown {
@@ -198,7 +198,7 @@ export default function Navbar({ toggleSidebar }) {
                 }
                 
                 .shimmer {
-                    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
                     background-size: 200% 100%;
                     animation: shimmer 2s infinite;
                 }
@@ -227,12 +227,12 @@ export default function Navbar({ toggleSidebar }) {
 
             <nav className={`fixed top-0 left-0 right-0 h-16 flex items-center justify-between px-4 sm:px-6 shadow-2xl z-50 transition-all duration-300 ${
                 isScrolled 
-                    ? 'bg-black/80 backdrop-blur-custom border-b border-white/10' 
-                    : 'bg-gradient-to-r from-black via-gray-900 to-blue-900'
+                    ? 'bg-slate-950/80 backdrop-blur-custom border-b border-cyan-500/20' 
+                    : 'bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900'
             }`}>
                 
                 {/* Efecto de brillo superior */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50"></div>
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
                 
                 {/* Left side */}
                 <div className="flex items-center gap-2 sm:gap-4">

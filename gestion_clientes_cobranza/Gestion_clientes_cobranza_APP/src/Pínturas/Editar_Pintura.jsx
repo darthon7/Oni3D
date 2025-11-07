@@ -86,7 +86,7 @@ export default function Editar_Pintura() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-indigo-900 p-4 overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}

@@ -248,7 +248,7 @@ export default function AgregarAlerta({ onCreated }) {
                 }
             `}</style>
 
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 p-4 sm:p-6">
+            <div className="min-h-screen">
                 <div className="max-w-4xl mx-auto">
                     {/* Header mejorado */}
                     <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 text-white rounded-2xl shadow-2xl overflow-hidden mb-8 animate-fade-in">

@@ -29,17 +29,18 @@ export default function Listado_Refaccion() {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error('Error al cargar las refacciones');
       const data = await response.json();
-      setRefacciones(data);
+      setRefacciones(Array.isArray(data) ? data : []);
       setError(null);
     } catch (err) {
-      setError(err.message);
+      setError(err?.message || 'Error desconocido al cargar refacciones');
+      setRefacciones([]);
     } finally {
       setLoading(false);
     }
   };
 
   const handleSearch = async () => {
-    if (!searchTerm.trim()) {
+    if (!searchTerm || !searchTerm.trim()) {
       fetchRefacciones();
       return;
     }
@@ -49,10 +50,11 @@ export default function Listado_Refaccion() {
       const response = await fetch(`${API_URL}/buscar/${filterType}?${filterType}=${searchTerm}`);
       if (!response.ok) throw new Error('Error en la búsqueda');
       const data = await response.json();
-      setRefacciones(data);
+      setRefacciones(Array.isArray(data) ? data : []);
       setError(null);
     } catch (err) {
-      setError(err.message);
+      setError(err?.message || 'Error desconocido en la búsqueda');
+      setRefacciones([]);
     } finally {
       setLoading(false);
     }
@@ -109,10 +111,10 @@ export default function Listado_Refaccion() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
-          <p className="mt-4 text-white text-lg">Cargando refacciones...</p>
+          <p className="mt-4 text-gray-700 text-lg font-semibold">Cargando refacciones...</p>
         </div>
       </div>
     );
@@ -123,21 +125,21 @@ export default function Listado_Refaccion() {
     <>
       {/* --- Modal de Confirmación de Borrado --- */}
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-black/70 z-40 flex items-center justify-center p-4 transition-opacity duration-300">
-          <div className="bg-slate-800 rounded-xl shadow-2xl p-6 border border-slate-700 max-w-sm w-full animate-fade-in-up">
+        <div className="fixed inset-0 bg-black/40 z-40 flex items-center justify-center p-4 transition-opacity duration-300">
+          <div className="bg-white rounded-2xl shadow-2xl p-6 border border-gray-200 max-w-sm w-full animate-fade-in-up">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold text-white">Confirmar Eliminación</h3>
-              <button onClick={cancelDelete} className="text-slate-400 hover:text-white transition-colors">
+              <h3 className="text-xl font-bold text-gray-900">Confirmar Eliminación</h3>
+              <button onClick={cancelDelete} className="text-gray-400 hover:text-gray-600 transition-colors">
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <p className="text-slate-300 mb-6">
+            <p className="text-gray-600 mb-6">
               ¿Estás seguro de que deseas eliminar esta refacción? Esta acción no se puede deshacer.
             </p>
             <div className="flex justify-end gap-4">
               <button
                 onClick={cancelDelete}
-                className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold transition-colors"
+                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors"
               >
                 Cancelar
               </button>
@@ -154,7 +156,7 @@ export default function Listado_Refaccion() {
       )}
 
       {/* --- Contenido Principal de la Página --- */}
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-8 px-4">
+      <div className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8">

@@ -72,7 +72,7 @@ export default function Agregar_Empleado() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-blue-50 p-4">
+        <div className="min-h-screen flex items-center justify-center ">
             {/* Contenedor del formulario con animación de entrada */}
             <div 
                 className={`w-full max-w-lg bg-white rounded-xl shadow-2xl p-8 transform transition-all duration-700 ease-out

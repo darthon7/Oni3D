@@ -231,7 +231,7 @@ export default function Agregar_Producto() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-blue-100 to-purple-100 p-4">
+        <div className="min-h-screen flex items-center justify-center">
             <motion.div
                 key="add-product-form"
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}

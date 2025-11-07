@@ -93,7 +93,7 @@ export default function Listado_Material() { // Nombre del componente corregido
     return (
         <>
             <style>{animationStyles}</style> {/* Incluir estilos de animación */}
-            <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 p-4 md:p-8">
+            <div className="min-h-screen ">
                 <div className="max-w-7xl mx-auto">
                     {/* Header Mejorado */}
                     <motion.div

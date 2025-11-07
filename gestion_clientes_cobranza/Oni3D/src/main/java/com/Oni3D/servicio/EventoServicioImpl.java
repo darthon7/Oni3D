@@ -77,15 +77,30 @@ public class EventoServicioImpl implements EventoServicio {
      * Implementación del método para eliminar eventos.
      * @param id El ID del evento a eliminar.
      */
+    /**
+     * Implementación del método para eliminar eventos.
+     * @param id El ID del evento a eliminar.
+     */
     @Override
-    @Transactional // <--- AÑADIDO: Es una operación de escritura
+    @Transactional // Es una operación de escritura
     public void deleteById(Long id) {
-        // Primero verificar si existe para lanzar una excepción clara si no se encuentra
+        // 1. Verificar si existe el evento
         if (!eventoRepositorio.existsById(id)) {
             throw new ResourceNotFoundException("Evento", "id", id);
         }
-        // Si existe, eliminarlo
+
+        // ⭐ 2. PRIMERO eliminar la venta asociada (si existe)
+        try {
+            ventaServicio.eliminarVentaPorEventoId(id);
+            System.out.println("✅ Venta eliminada para evento ID: " + id);
+        } catch (Exception e) {
+            System.err.println("⚠️ Error al eliminar venta del evento " + id + ": " + e.getMessage());
+            // Continuar con la eliminación del evento aunque falle la venta
+        }
+
+        // ⭐ 3. LUEGO eliminar el evento
         eventoRepositorio.deleteById(id);
+        System.out.println("✅ Evento eliminado ID: " + id);
     }
 
     /**

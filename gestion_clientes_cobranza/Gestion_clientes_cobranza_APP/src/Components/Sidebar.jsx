@@ -16,6 +16,8 @@ import pinturaIcon from '../assets/pinturaIcon.png';
 import iaIcon from '../assets/iaIcon.png';
 import VentasIcon from '../assets/ventasIcon.png';
 import refaccionIcon from '../assets/refaccionIcon.png';
+import printicons from '../assets/print.png';
+
 // --- Datos del menú (sin cambios) ---
 const menuItems = [
     {
@@ -52,7 +54,7 @@ const menuItems = [
     {
       section: "Gestión",
       items: [
-        { path: "/Listado_Impresoras", icon: pinturaIcon, label: "Impresoras", type: "img" },
+        { path: "/Listado_Impresoras", icon: printicons, label: "Impresoras", type: "img" },
         { path: "/Agregar_Impresora", icon: addIcon, label: "Agregar Impresora", type: "img" },
         { path: "/lista_material", icon: materialIcon, label: "Materiales", type: "img" },
         { path: "/agregar_material", icon: addIcon, label: "Agregar Material", type: "img" },
@@ -96,12 +98,12 @@ const navItemVariants = {
 
 export default function Sidebar({ isOpen, closeSidebar }) {
   
-  // --- Clases de estilo mejoradas para el tema oscuro ---
+  // --- Clases de estilo mejoradas para el tema oscuro con colores cyan/azul ---
   const linkClass = ({ isActive }) => 
     `flex items-center gap-4 px-4 py-3 mx-4 rounded-lg transition-all duration-300 ease-in-out transform hover:translate-x-2 ${
       isActive 
-        ? 'bg-indigo-600 text-white font-semibold shadow-lg' 
-        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+        ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-lg shadow-cyan-500/50' 
+        : 'text-cyan-300/70 hover:bg-slate-800/50 hover:text-cyan-300 hover:border-l-2 hover:border-cyan-500'
     }`;
 
   const renderIcon = (item) => {
@@ -134,20 +136,20 @@ export default function Sidebar({ isOpen, closeSidebar }) {
 
       {/* Sidebar con animación */}
       <motion.aside 
-        className="fixed top-0 left-0 h-full w-64 bg-gray-900 shadow-2xl z-40"
+        className="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 shadow-2xl z-40 border-r border-cyan-500/20"
         variants={sidebarVariants}
         initial="closed"
         animate={isOpen ? "open" : "closed"}
       >
         <div className="overflow-y-auto h-full py-8">
           <div className="px-6 mb-8">
-             <h2 className="text-2xl font-bold text-white">Tu Logo Aquí</h2>
+             <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Tu Logo Aquí</h2>
           </div>
 
           {menuItems.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mb-6">
               {section.section && (
-                <div className="px-6 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                <div className="px-6 py-2 text-xs font-bold text-cyan-400/60 uppercase tracking-wider">
                   {section.section}
                 </div>
               )}

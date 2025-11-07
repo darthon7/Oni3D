@@ -154,4 +154,14 @@ public class VentaServicioImpl implements VentaServicio {
         Integer cantidad = ventaRepositorio.calcularCantidadVendidaPorProducto(productoId);
         return cantidad != null ? cantidad : 0;
     }
+    @Override
+    public void eliminarVentaPorEventoId(Long eventoId) {
+        Optional<Venta> ventaOpt = ventaRepositorio.findByEventoId(eventoId);
+        if (ventaOpt.isPresent()) {
+            ventaRepositorio.delete(ventaOpt.get());
+            System.out.println("✅ Venta eliminada para evento ID: " + eventoId);
+        } else {
+            System.out.println("⚠️ No se encontró venta para evento ID: " + eventoId);
+        }
+    }
 }

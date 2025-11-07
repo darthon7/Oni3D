@@ -191,7 +191,7 @@ function AIChat() {
                     background: #555;
                 }
             `}</style>
-            <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 py-8 px-4">
+            <div className="min-h-screen ">
                 <div className="max-w-5xl mx-auto">
                     {/* Header Mejorado */}
                     <motion.div

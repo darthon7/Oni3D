@@ -144,7 +144,7 @@ export default function Settings() {
     const visibleUsers = users.filter(user => user.id !== currentUser?.id);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 p-4 md:p-8">
+        <div className="min-h-screen">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
